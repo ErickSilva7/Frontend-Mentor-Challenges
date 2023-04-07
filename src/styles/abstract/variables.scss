@@ -6,8 +6,17 @@ $calculator-background-color: #3b4664;
 $text-color: #f1f4f4;
 $display-color: #181f32;
 $keyboard-background-color: #252d44;
-$basic-key-background-color: #eae3db;
-$basic-key-box-shadow: #b5a69a;
+
+//keys color
+$number-and-operation-color: #eae3db;
+$number-and-operation-box-shadow: #b5a69a;
+$number-and-operation-font-color: #444a58;
+$del-and-reset-color: #647299;
+$del-and-reset-box-shadow: #404e75;
+$del-and-reset-font-color: #faffff;
+$equal-color: #d13f30;
+$equal-box-shadow: #8f2316;
+$equal-font-color: #ffeae0;
 
 //font
 $font: 'poppins';

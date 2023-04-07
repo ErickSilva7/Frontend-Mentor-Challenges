@@ -1,29 +1,34 @@
-import '../../styles/keyboard basic key.scss'
+import DelKey from "./del key"
+import EqualKey from "./equal key"
+import NumberKey from "./number keys"
+import OperationKey from "./operation keys"
+import ResetKey from "./reset key"
+
 
 const Key = (props) => {
     if (props.type === 'number') {
         return (
-            <button className='keyboard__basic__key'>1</button>
+            <NumberKey>{props.children}</NumberKey>
         )
     }
     if (props.type === 'del') {
         return (
-            <button className='keyboard__basic__key'>2</button>
+            <DelKey>{props.children}</DelKey>
         )
     } 
     if (props.type === 'operation') {
         return (
-            <button className='keyboard__basic__key'>3</button>
+            <OperationKey>{props.children}</OperationKey>
         )
     }
     if (props.type === 'reset') {
         return (
-            <button className='keyboard__basic__key'>4</button>
+            <ResetKey>{props.children}</ResetKey>
         )
     }
     if (props.type === 'equal') {
         return (
-            <button className='keyboard__basic__key'>5</button>
+            <EqualKey>{props.children}</EqualKey>
         )
     }
 }
