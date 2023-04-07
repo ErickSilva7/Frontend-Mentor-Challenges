@@ -2,7 +2,7 @@ import '../../styles/header.scss'
 
 const Header = () => {
     return (
-        <header>
+        <header className='calculator__header'>
             <h1>Calculator</h1>
         </header>
     )

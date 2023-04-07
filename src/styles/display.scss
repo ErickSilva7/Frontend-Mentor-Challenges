@@ -1,0 +1,17 @@
+@import './abstract/variables.scss';
+
+.calculator__display {
+    width: 100%;
+    background-color: $display-color;
+    color: $text-color;
+    font-weight: 600;
+    font-size: 3rem;
+    padding: 0.35rem 1.6rem;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    height: 7.4rem;
+    line-height: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
