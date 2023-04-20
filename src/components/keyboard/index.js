@@ -2,26 +2,32 @@ import "../../scss/keyboard.scss";
 import Key from "./key";
 
 const Keyboard = () => {
+    var keys = [
+        { type: "number", key: "7" },
+        { type: "number", key: "8" },
+        { type: "number", key: "9" },
+        { type: "del", key: "del" },
+        { type: "number", key: "4" },
+        { type: "number", key: "5" },
+        { type: "number", key: "6" },
+        { type: "operation", key: "+" },
+        { type: "number", key: "1" },
+        { type: "number", key: "2" },
+        { type: "number", key: "3" },
+        { type: "operation", key: "-" },
+        { type: "number", key: "." },
+        { type: "number", key: "0" },
+        { type: "operation", key: "÷" },
+        { type: "operation", key: "x" },
+        { type: "reset", key: "reset" },
+        { type: "equal", key: "=" },
+    ];
+
     return (
         <div className="calculator__keyboard">
-            <Key type="number">7</Key>
-            <Key type="number">8</Key>
-            <Key type="number">9</Key>
-            <Key type="del">del</Key>
-            <Key type="number">4</Key>
-            <Key type="number">5</Key>
-            <Key type="number">6</Key>
-            <Key type="operation">+</Key>
-            <Key type="number">1</Key>
-            <Key type="number">2</Key>
-            <Key type="number">3</Key>
-            <Key type="operation">-</Key>
-            <Key type="number">.</Key>
-            <Key type="number">0</Key>
-            <Key type="operation">÷</Key>
-            <Key type="operation">x</Key>
-            <Key type="reset">reset</Key>
-            <Key type="equal">=</Key>
+            {keys.map((props) => (
+                <Key type={props.type}>{props.key}</Key>
+            ))}
         </div>
     );
 };
