@@ -1,6 +1,6 @@
-import "../../../scss/keys.scss";
+import "../keys.scss";
 
-const NumberKey = (props) => {
+const OperationKey = (props) => {
     return (
         <button className="Number__and__operation__key">
             {props.children}
@@ -8,4 +8,4 @@ const NumberKey = (props) => {
     );
 };
 
-export default NumberKey;
+export default OperationKey;

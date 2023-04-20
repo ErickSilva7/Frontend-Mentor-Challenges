@@ -1,5 +1,5 @@
-import "../../scss/keyboard.scss";
-import Key from "./key";
+import "./index.scss";
+import Key from "./keys";
 
 const Keyboard = () => {
     var keys = [

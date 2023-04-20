@@ -1,14 +1,12 @@
 import "./App.scss";
-import Display from "./components/display";
 import Header from "./components/header";
-import Keyboard from "./components/keyboard";
+import Calculator from "./components/calculator";
 
 const App = () => {
     return (
         <div className="calculator">
             <Header />
-            <Display />
-            <Keyboard />
+            <Calculator />
         </div>
     );
 };

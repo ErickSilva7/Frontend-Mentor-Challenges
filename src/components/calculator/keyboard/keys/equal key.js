@@ -1,4 +1,4 @@
-import "../../../scss/keys.scss";
+import "../keys.scss";
 
 const EqualKey = (props) => {
     return <button className="equal__key">{props.children}</button>;

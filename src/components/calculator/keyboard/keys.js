@@ -1,8 +1,8 @@
-import DelKey from "./del key";
-import EqualKey from "./equal key";
-import NumberKey from "./number keys";
-import OperationKey from "./operation keys";
-import ResetKey from "./reset key";
+import DelKey from "./keys/del key";
+import EqualKey from "./keys/equal key";
+import NumberKey from "./keys/number keys";
+import OperationKey from "./keys/operation keys";
+import ResetKey from "./keys/reset key";
 
 const Key = (props) => {
     if (props.type === "number") {

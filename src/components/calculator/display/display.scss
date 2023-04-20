@@ -1,4 +1,4 @@
-@import "./abstract/variables.scss";
+@import "../../../abstract/variables.scss";
 
 .calculator__display {
     width: 100%;
@@ -9,7 +9,8 @@
     padding: 0.35rem 1.6rem;
     border-radius: 10px;
     letter-spacing: 2px;
-    height: 7.4rem;
+    height: 6rem;
+    margin-bottom: 3rem;
     line-height: 0;
     display: flex;
     justify-content: flex-end;

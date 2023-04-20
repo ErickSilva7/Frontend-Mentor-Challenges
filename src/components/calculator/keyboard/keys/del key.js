@@ -1,4 +1,4 @@
-import "../../../scss/keys.scss";
+import "../keys.scss";
 
 const DelKey = (props) => {
     return <button className="del__key">{props.children}</button>;
