@@ -1,11 +1,11 @@
-import '../../styles/header.scss'
+import "../../scss/header.scss";
 
 const Header = () => {
     return (
-        <header className='calculator__header'>
+        <header className="calculator__header">
             <h1>Calculator</h1>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

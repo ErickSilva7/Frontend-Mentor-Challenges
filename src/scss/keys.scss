@@ -1,0 +1,17 @@
+@import "./abstract/mixin key Basic Config.scss";
+
+.Number__and__operation__key {
+    @include keyBasicConfig("number_and_operation");
+}
+
+.reset__key {
+    @include keyBasicConfig("reset");
+}
+
+.del__key {
+    @include keyBasicConfig("del");
+}
+
+.equal__key {
+    @include keyBasicConfig("equal");
+}

@@ -1,20 +1,20 @@
-@import './styles/abstract/variables.scss';
+@import "./scss/abstract/variables.scss";
 
 * {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	box-sizing: border-box;
-	font-family: $font;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    font-family: $font;
 }
 
 body {
-	display: flex;
-	background-color: $body-background-color;
-	justify-content: center;
-	@media (min-width: 768px) {
-		margin-top: 10%;
-	}
+    display: flex;
+    background-color: $body-background-color;
+    justify-content: center;
+    @media (min-width: 768px) {
+        margin-top: 10%;
+    }
 }

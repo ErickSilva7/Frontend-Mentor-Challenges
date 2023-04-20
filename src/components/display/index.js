@@ -1,9 +1,7 @@
-import '../../styles/display.scss'
+import "../../scss/display.scss";
 
 const Display = () => {
-    return (
-        <p className='calculator__display'></p>
-    )
-}
+    return <p className="calculator__display"></p>;
+};
 
-export default Display
+export default Display;

@@ -1,9 +1,7 @@
-import '../../../styles/keys.scss'
+import "../../../scss/keys.scss";
 
 const ResetKey = (props) => {
-    return (
-        <button className='reset__key'>{props.children}</button>
-    )
-}
+    return <button className="reset__key">{props.children}</button>;
+};
 
-export default ResetKey
+export default ResetKey;
