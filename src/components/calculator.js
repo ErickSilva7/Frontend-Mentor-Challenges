@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./index.scss";
+import "./calculator.scss";
 
 let checkEqualOperation = false;
 
@@ -136,7 +136,10 @@ const Calculator = () => {
     };
 
     return (
-        <div>
+        <div className="calculator">
+            <header className="header">
+                <h1>Calculator</h1>
+            </header>
             <div className={"display"}>
                 <div className="oldNumAndOperator">
                     <div>{oldNum}</div>

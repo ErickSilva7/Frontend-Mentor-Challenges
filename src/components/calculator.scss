@@ -1,0 +1,100 @@
+@import "../abstract/variables.scss";
+
+.calculator {
+    background-color: $calculator-background-color;
+    height: 40rem;
+    width: 22.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 10px;
+
+    .header {
+        color: $text-color;
+        font-size: 1.25rem;
+        font-family: $second-font;
+    }
+
+    .display {
+        display: grid;
+        justify-items: end;
+        grid-template-rows: 25% 75%;
+        width: 100%;
+        background-color: $display-color;
+        color: $text-color;
+        font-family: $main-font;
+        padding: 0.35rem 3%;
+        border-radius: 10px;
+        height: 6rem;
+        .oldNumAndOperator {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .num {
+            font-weight: 600;
+        }
+    }
+
+    .keyboard {
+        width: 100%;
+        background-color: $keyboard-background-color;
+        border-radius: 10px;
+        padding: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        button {
+            height: 3rem;
+            border-radius: 5px;
+            font-family: $main-font;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:active {
+                box-shadow: none;
+                position: relative;
+                top: 5px;
+            }
+        }
+
+        .number,
+        .operation {
+            width: 2.875rem;
+            background-color: $number-and-operation-color;
+            box-shadow: 0 5px 0 $number-and-operation-box-shadow;
+            color: $number-and-operation-font-color;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .del {
+            width: 2.875rem;
+            background-color: $del-and-reset-color;
+            box-shadow: 0 5px 0 $del-and-reset-box-shadow;
+            color: $del-and-reset-font-color;
+            font-family: $second-font;
+        }
+
+        .reset {
+            width: 6.75rem;
+            background-color: $del-and-reset-color;
+            box-shadow: 0 5px 0 $del-and-reset-box-shadow;
+            color: $del-and-reset-font-color;
+            font-family: $second-font;
+        }
+
+        .equal {
+            width: 6.75rem;
+            font-weight: 600;
+            background-color: $equal-color;
+            box-shadow: 0 5px 0 $equal-box-shadow;
+            color: $equal-font-color;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+}
