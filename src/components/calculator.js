@@ -9,7 +9,7 @@ const Calculator = () => {
         { class: "number", key: "7" },
         { class: "number", key: "8" },
         { class: "number", key: "9" },
-        { class: "del", key: "del" },
+        { class: "del", key: "Del" },
         { class: "number", key: "4" },
         { class: "number", key: "5" },
         { class: "number", key: "6" },
@@ -22,9 +22,19 @@ const Calculator = () => {
         { class: "number", key: "0" },
         { class: "operation", key: "÷" },
         { class: "operation", key: "x" },
-        { class: "reset", key: "reset" },
+        { class: "reset", key: "Reset" },
         { class: "equal", key: "=" },
     ];
+
+    let [theme, setTheme] = useState(1);
+
+    const themeSwitch = () => {
+        if ((theme === 3)) {
+            setTheme((theme = 1));
+        } else {
+            setTheme((theme += 1));
+        }
+    };
 
     let [num, setNum] = useState("0");
     let [oldNum, setOldNum] = useState("");
@@ -32,9 +42,9 @@ const Calculator = () => {
 
     let [fontSize, setFontSize] = useState(3);
 
-    const click = (btn) => {
-        let btnClassName = btn.target.className;
-        let btnInnerHTML = btn.target.innerHTML;
+    const keyClick = (key) => {
+        let btnClassName = key.target.className;
+        let btnInnerHTML = key.target.innerHTML;
 
         if (btnClassName === "number") {
             if (equalOperation) {
@@ -88,8 +98,8 @@ const Calculator = () => {
                 setOldNum((oldNum = num));
                 setNum((num = "0"));
             } else if (clickInOperationKey) {
-                setOperator(operator = btnInnerHTML)
-                clickInOperationKey = false
+                setOperator((operator = btnInnerHTML));
+                clickInOperationKey = false;
             } else {
                 var result;
                 if (operator === "+") {
@@ -106,7 +116,7 @@ const Calculator = () => {
                 setOperator((operator = btnInnerHTML));
             }
             setFontSize((fontSize = 3));
-            clickInOperationKey = true
+            clickInOperationKey = true;
         }
 
         if (btnClassName === "equal") {
@@ -155,9 +165,15 @@ const Calculator = () => {
     };
 
     return (
-        <div className="calculator">
-            <header className="header">
+        <div className={`calculator theme${theme}`}>
+            <header>
                 <h1>Calculator</h1>
+                <div className="Theme__Switch">
+                    <h2>Theme</h2>
+                    <button className="Switch" onClick={themeSwitch}>
+                        <div className={`dot position${theme}`}></div>
+                    </button>
+                </div>
             </header>
             <div className={"display"}>
                 <div className="oldNumAndOperator">
@@ -170,7 +186,7 @@ const Calculator = () => {
             </div>
             <div className="keyboard">
                 {keys.map((props) => (
-                    <button className={props.class} onClick={click}>
+                    <button className={props.class} onClick={keyClick}>
                         {props.key}
                     </button>
                 ))}

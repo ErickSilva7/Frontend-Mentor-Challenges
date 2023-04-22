@@ -1,23 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap");
 
-//colors
-$body-background-color: #1f1f1f;
-$calculator-background-color: #3b4664;
-$text-color: #f1f4f4;
-$display-color: #181f32;
-$keyboard-background-color: #252d44;
-
-//keys color
-$number-and-operation-color: #eae3db;
-$number-and-operation-box-shadow: #b5a69a;
-$number-and-operation-font-color: #444a58;
-$del-and-reset-color: #647299;
-$del-and-reset-box-shadow: #404e75;
-$del-and-reset-font-color: #faffff;
-$equal-color: #d13f30;
-$equal-box-shadow: #8f2316;
-$equal-font-color: #ffeae0;
-
 //font
 $main-font: "Roboto Mono", monospace;
 $second-font: "Poppins", sans-serif;
+
+
+$background: #ffffff;
+
+// Theme 1
+$calculator-background-color-theme1: hsl(222, 26%, 31%);
+$text-color-theme1: #f1f4f4;
+$display-color-theme1: #181f32;
+$keyboard-background-color-theme1: #252d44;
+$number-and-operation-color-theme1: #eae3db;
+$number-and-operation-box-shadow-theme1: #b5a69a;
+$number-and-operation-font-color-theme1: #444a58;
+$del-and-reset-color-theme1: #647299;
+$del-and-reset-box-shadow-theme1: #404e75;
+$del-reset-and-equal-font-color-theme1: #faffff;
+$equal-and-dot-color-theme1: #d13f30;
+$equal-box-shadow-theme1: #8f2316;
+
+// Theme 2
+$calculator-background-color-theme2: hsl(0, 0%, 90%);
+$text-color-theme2: hsl(60, 10%, 19%);
+$display-color-theme2: hsl(0, 0%, 98%);
+$keyboard-background-color-theme2: hsl(0, 5%, 81%);
+$number-and-operation-color-theme2: hsl(45, 7%, 89%);
+$number-and-operation-box-shadow-theme2: hsl(35, 11%, 61%);
+$number-and-operation-font-color-theme2: hsl(60, 10%, 19%);
+$del-and-reset-color-theme2: hsl(185, 42%, 37%);
+$del-and-reset-box-shadow-theme2: hsl(185, 58%, 25%);
+$del-reset-and-equal-font-color-theme2: hsl(0, 0%, 100%);
+$equal-and-dot-color-theme2: hsl(25, 98%, 40%);
+$equal-box-shadow-theme2: hsl(25, 99%, 27%);
+
+// Theme 3
+$calculator-background-color-theme3: hsl(268, 75%, 9%);
+$text-color-theme3: hsl(52, 100%, 62%);
+$display-color-theme3: hsl(268, 71%, 16%);
+$keyboard-background-color-theme3: hsl(268, 71%, 12%);
+$number-and-operation-color-theme3: hsl(268, 49%, 26%);
+$number-and-operation-box-shadow-theme3: hsl(268, 48%, 17%);
+$number-and-operation-font-color-theme3: hsl(52, 100%, 62%);
+$del-and-reset-color-theme3: hsl(281, 89%, 26%);
+$del-and-reset-box-shadow-theme3: hsl(281, 76%, 18%);
+$del-and-reset-font-color-theme3: hsl(0, 0%, 100%);
+$equal-and-dot-color-theme3: hsl(176, 100%, 44%);
+$equal-box-shadow-theme3: hsl(176, 99%, 28%);
+$equal-font-color-theme3: hsl(198, 20%, 13%);
