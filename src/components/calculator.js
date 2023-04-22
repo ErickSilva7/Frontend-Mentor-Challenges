@@ -34,6 +34,15 @@ const Calculator = () => {
         } else {
             setTheme((theme += 1));
         }
+        if (theme === 1) {
+            document.body.style.backgroundColor = '#1f1f1f';
+        }
+        if (theme === 2) {
+            document.body.style.backgroundColor = '#fff';
+        }
+        if (theme === 3) {
+            document.body.style.backgroundColor = '#0a0213';
+        }
     };
 
     let [num, setNum] = useState("0");
