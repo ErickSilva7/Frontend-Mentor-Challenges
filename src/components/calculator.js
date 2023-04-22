@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./calculator.scss";
 
-let checkEqualOperation = false;
+let equalOperation = false;
+let clickInOperationKey = false;
 
 const Calculator = () => {
     var keys = [
@@ -36,17 +37,14 @@ const Calculator = () => {
         let btnInnerHTML = btn.target.innerHTML;
 
         if (btnClassName === "number") {
-            if (checkEqualOperation) {
-                checkEqualOperation = false;
+            if (equalOperation) {
+                equalOperation = false;
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
                 setFontSize((fontSize = 3));
             }
-            if (num.length != 16) {
-                if (num.length > 7) {
-                    setFontSize((fontSize -= 0.1875));
-                }
+            if (num.length != 8) {
                 if (btnInnerHTML === ".") {
                     if (num === "") {
                         setNum(num + "");
@@ -64,8 +62,8 @@ const Calculator = () => {
         }
 
         if (btnClassName === "del") {
-            if (checkEqualOperation) {
-                checkEqualOperation = false;
+            if (equalOperation) {
+                equalOperation = false;
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
@@ -84,11 +82,14 @@ const Calculator = () => {
         }
 
         if (btnClassName === "operation") {
-            if (checkEqualOperation || oldNum === "") {
-                checkEqualOperation = false;
+            if (equalOperation || oldNum === "") {
+                equalOperation = false;
                 setOperator((operator = btnInnerHTML));
                 setOldNum((oldNum = num));
                 setNum((num = "0"));
+            } else if (clickInOperationKey) {
+                setOperator(operator = btnInnerHTML)
+                clickInOperationKey = false
             } else {
                 var result;
                 if (operator === "+") {
@@ -103,28 +104,46 @@ const Calculator = () => {
                 setOldNum((oldNum = result));
                 setNum((num = "0"));
                 setOperator((operator = btnInnerHTML));
-                setFontSize((fontSize = 3));
             }
+            setFontSize((fontSize = 3));
+            clickInOperationKey = true
         }
 
         if (btnClassName === "equal") {
             var result;
-            if (operator === "+") {
-                setOldNum((oldNum = oldNum + " + " + num + " ="));
-                result = parseFloat(oldNum) + parseFloat(num);
-            } else if (operator === "-") {
-                setOldNum((oldNum = oldNum + " - " + num + " ="));
-                result = parseFloat(oldNum) - parseFloat(num);
-            } else if (operator === "x") {
-                setOldNum((oldNum = oldNum + " x " + num + " ="));
-                result = parseFloat(oldNum) * parseFloat(num);
+            if (equalOperation || oldNum === "") {
+                setNum((num = "0"));
+                setOldNum((oldNum = ""));
+                setOperator((operator = ""));
+                setFontSize((fontSize = 3));
             } else {
-                setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
-                result = parseFloat(oldNum) / parseFloat(num);
+                if (operator === "+") {
+                    setOldNum((oldNum = oldNum + " + " + num + " ="));
+                    result = parseFloat(oldNum) + parseFloat(num);
+                } else if (operator === "-") {
+                    setOldNum((oldNum = oldNum + " - " + num + " ="));
+                    result = parseFloat(oldNum) - parseFloat(num);
+                } else if (operator === "x") {
+                    setOldNum((oldNum = oldNum + " x " + num + " ="));
+                    result = parseFloat(oldNum) * parseFloat(num);
+                } else {
+                    setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
+                    result = parseFloat(oldNum) / parseFloat(num);
+                }
+                if (result.toString().length > 8) {
+                    setFontSize((fontSize = 1.5));
+                }
+                if (result.toString().length > 19) {
+                    setNum((num = "Overflow"));
+                    setOldNum((oldNum = ""));
+                    setOperator((operator = "    "));
+                    setFontSize((fontSize = 3));
+                } else {
+                    setNum((num = result));
+                    setOperator((operator = ""));
+                }
+                equalOperation = true;
             }
-            setNum((num = result));
-            setOperator((operator = ""));
-            checkEqualOperation = true;
         }
 
         if (btnClassName === "reset") {
