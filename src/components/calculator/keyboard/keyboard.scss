@@ -22,6 +22,16 @@
             position: relative;
             top: 5px;
         }
+
+        @media (min-width: 768px) {
+            height: 4.5rem;
+            font-size: 1.25rem;
+        }
+
+        @media (min-width: 1440px) {
+            height: 5.25rem;
+            font-size: 1.25rem;
+        }
     }
 
     .number,
@@ -29,16 +39,42 @@
         width: 2.875rem;
         font-size: 1.5rem;
         font-weight: 600;
+
+        @media (min-width: 768px) {
+            width: 5.75rem;
+            font-size: 1.75rem;
+        }
+
+        @media (min-width: 1440px) {
+            width: 8.625rem;
+            font-size: 2rem;
+        }
     }
 
     .del {
         width: 2.875rem;
         font-family: $second-font;
+
+        @media (min-width: 768px) {
+            width: 5.75rem;
+        }
+
+        @media (min-width: 1440px) {
+            width: 8.625rem;
+        }
     }
 
     .reset {
         width: 6.75rem;
         font-family: $second-font;
+
+        @media (min-width: 768px) {
+            width: 12.5rem;
+        }
+
+        @media (min-width: 1440px) {
+            width: 18.25rem;
+        }
     }
 
     .equal {
@@ -46,5 +82,12 @@
         font-weight: 600;
         font-size: 1.5rem;
         font-weight: 600;
+
+        @media (min-width: 768px) {
+            width: 12.5rem;
+        }
+        @media (min-width: 1440px) {
+            width: 18.25rem;
+        }
     }
 }

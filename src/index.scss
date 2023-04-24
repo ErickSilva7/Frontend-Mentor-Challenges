@@ -13,7 +13,5 @@ body {
     background-color: #252d41;
     display: flex;
     justify-content: center;
-    @media (min-width: 768px) {
-        margin: 10%;
-    }
+    margin: 10vh;
 }
