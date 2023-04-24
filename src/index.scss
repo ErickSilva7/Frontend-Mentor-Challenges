@@ -13,5 +13,8 @@ body {
     background-color: #252d41;
     display: flex;
     justify-content: center;
-    margin: 10vh;
+
+    @media (min-height: 694px) {
+        margin: 10vh;
+    }
 }
