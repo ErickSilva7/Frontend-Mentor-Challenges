@@ -1,0 +1,22 @@
+@import "../../../abstract/variables.scss";
+
+.display {
+    display: grid;
+    justify-items: end;
+    grid-template-rows: 25% 75%;
+    width: 100%;
+    font-family: $main-font;
+    padding: 0.35rem 3%;
+    border-radius: 10px;
+    height: 6rem;
+
+    .oldNumAndOperator {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .num {
+        font-weight: 600;
+        align-self: center;
+    }
+}

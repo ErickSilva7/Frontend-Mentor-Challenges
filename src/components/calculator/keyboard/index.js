@@ -1,63 +1,16 @@
-import { useState } from "react";
-import "./calculator.scss";
+import { keys } from "./key list.js";
+import "./keyboard.scss"
 
-let equalOperation = false;
-let clickInOperationKey = false;
-
-const Calculator = () => {
-    var keys = [
-        { class: "number", key: "7" },
-        { class: "number", key: "8" },
-        { class: "number", key: "9" },
-        { class: "del", key: "Del" },
-        { class: "number", key: "4" },
-        { class: "number", key: "5" },
-        { class: "number", key: "6" },
-        { class: "operation", key: "+" },
-        { class: "number", key: "1" },
-        { class: "number", key: "2" },
-        { class: "number", key: "3" },
-        { class: "operation", key: "-" },
-        { class: "number", key: "." },
-        { class: "number", key: "0" },
-        { class: "operation", key: "÷" },
-        { class: "operation", key: "x" },
-        { class: "reset", key: "Reset" },
-        { class: "equal", key: "=" },
-    ];
-
-    let [theme, setTheme] = useState(1);
-
-    const themeSwitch = () => {
-        if ((theme === 3)) {
-            setTheme((theme = 1));
-        } else {
-            setTheme((theme += 1));
-        }
-        if (theme === 1) {
-            document.body.style.backgroundColor = '#1f1f1f';
-        }
-        if (theme === 2) {
-            document.body.style.backgroundColor = '#fff';
-        }
-        if (theme === 3) {
-            document.body.style.backgroundColor = '#0a0213';
-        }
-    };
-
-    let [num, setNum] = useState("0");
-    let [oldNum, setOldNum] = useState("");
-    let [operator, setOperator] = useState("");
-
-    let [fontSize, setFontSize] = useState(3);
-
+const Keyboard = ({num, setNum, oldNum, setOldNum, operator, setOperator, fontSize, setFontSize}) => {
     const keyClick = (key) => {
         let btnClassName = key.target.className;
         let btnInnerHTML = key.target.innerHTML;
+        let checkequalOperation = false;
+        let clickInOperationKey = false;
 
         if (btnClassName === "number") {
-            if (equalOperation) {
-                equalOperation = false;
+            if (checkequalOperation) {
+                checkequalOperation = false;
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
@@ -81,8 +34,8 @@ const Calculator = () => {
         }
 
         if (btnClassName === "del") {
-            if (equalOperation) {
-                equalOperation = false;
+            if (checkequalOperation) {
+                checkequalOperation = false;
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
@@ -101,8 +54,8 @@ const Calculator = () => {
         }
 
         if (btnClassName === "operation") {
-            if (equalOperation || oldNum === "") {
-                equalOperation = false;
+            if (checkequalOperation || oldNum === "") {
+                checkequalOperation = false;
                 setOperator((operator = btnInnerHTML));
                 setOldNum((oldNum = num));
                 setNum((num = "0"));
@@ -130,7 +83,7 @@ const Calculator = () => {
 
         if (btnClassName === "equal") {
             var result;
-            if (equalOperation || oldNum === "") {
+            if (checkequalOperation || oldNum === "") {
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
@@ -161,7 +114,7 @@ const Calculator = () => {
                     setNum((num = result));
                     setOperator((operator = ""));
                 }
-                equalOperation = true;
+                checkequalOperation = true;
             }
         }
 
@@ -174,34 +127,14 @@ const Calculator = () => {
     };
 
     return (
-        <div className={`calculator theme${theme}`}>
-            <header>
-                <h1>Calculator</h1>
-                <div className="Theme__Switch">
-                    <h2>Theme</h2>
-                    <button className="Switch" onClick={themeSwitch}>
-                        <div className={`dot position${theme}`}></div>
-                    </button>
-                </div>
-            </header>
-            <div className={"display"}>
-                <div className="oldNumAndOperator">
-                    <div>{oldNum}</div>
-                    <div>{operator}</div>
-                </div>
-                <div className="num" style={{ fontSize: `${fontSize}rem` }}>
-                    {num}
-                </div>
-            </div>
-            <div className="keyboard">
-                {keys.map((props) => (
-                    <button className={props.class} onClick={keyClick}>
-                        {props.key}
-                    </button>
-                ))}
-            </div>
+        <div className="keyboard">
+            {keys.map((props) => (
+                <button className={props.class} onClick={keyClick}>
+                    {props.key}
+                </button>
+            ))}
         </div>
     );
 };
 
-export default Calculator;
+export default Keyboard;
