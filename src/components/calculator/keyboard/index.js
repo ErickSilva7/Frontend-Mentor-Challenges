@@ -35,7 +35,12 @@ const Keyboard = ({
             } else if (num === "0") {
                 setNum(btnInnerHTML);
             } else {
-                setNum(num + btnInnerHTML);
+                num = num.replace(/,/g, "");
+                setNum(
+                    (num = parseFloat((num += btnInnerHTML)).toLocaleString(
+                        "en-US"
+                    ))
+                );
             }
         }
 
@@ -48,7 +53,12 @@ const Keyboard = ({
             }
 
             if (num !== "0") {
-                setNum(num.toString().slice(0, -1));
+                num = num.toString().slice(0, -1).replace(/,/g, "");
+                setNum(
+                    (num = parseFloat((num += btnInnerHTML)).toLocaleString(
+                        "en-US"
+                    ))
+                );
                 setOldNum((oldNum = ""));
                 if (num.length === 1) {
                     setNum((num = "0"));
@@ -102,7 +112,7 @@ const Keyboard = ({
                         setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
                         result = parseFloat(oldNum) / parseFloat(num);
                     }
-                    setNum((num = result));
+                    setNum((num = result.toLocaleString("en-US")));
                     setOperator((operator = ""));
                 }
             }
