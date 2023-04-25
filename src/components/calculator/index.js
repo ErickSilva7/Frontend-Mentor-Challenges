@@ -8,18 +8,12 @@ const Calculator = () => {
     let [num, setNum] = useState("0");
     let [oldNum, setOldNum] = useState("");
     let [operator, setOperator] = useState("");
-    let [fontSize, setFontSize] = useState(3);
     let [theme, setTheme] = useState(1);
 
     return (
         <div className={`calculator theme${theme}`}>
             <Header theme={theme} setTheme={setTheme} />
-            <Display
-                num={num}
-                oldNum={oldNum}
-                operator={operator}
-                fontSize={fontSize}
-            />
+            <Display num={num} oldNum={oldNum} operator={operator} />
             <Keyboard
                 num={num}
                 setNum={setNum}
@@ -27,8 +21,6 @@ const Calculator = () => {
                 setOldNum={setOldNum}
                 operator={operator}
                 setOperator={setOperator}
-                fontSize={fontSize}
-                setFontSize={setFontSize}
             />
         </div>
     );

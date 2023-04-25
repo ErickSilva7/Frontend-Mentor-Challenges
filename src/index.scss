@@ -18,3 +18,15 @@ body {
         margin: 10vh;
     }
 }
+
+::-webkit-scrollbar {
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #636363;
+}

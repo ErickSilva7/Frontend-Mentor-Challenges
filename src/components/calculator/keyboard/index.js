@@ -1,12 +1,20 @@
 import { keys } from "./key list.js";
-import "./keyboard.scss"
+import "./keyboard.scss";
 
-const Keyboard = ({num, setNum, oldNum, setOldNum, operator, setOperator, fontSize, setFontSize}) => {
+let checkequalOperation = false;
+let clickInOperationKey = false;
+
+const Keyboard = ({
+    num,
+    setNum,
+    oldNum,
+    setOldNum,
+    operator,
+    setOperator,
+}) => {
     const keyClick = (key) => {
         let btnClassName = key.target.className;
         let btnInnerHTML = key.target.innerHTML;
-        let checkequalOperation = false;
-        let clickInOperationKey = false;
 
         if (btnClassName === "number") {
             if (checkequalOperation) {
@@ -14,22 +22,20 @@ const Keyboard = ({num, setNum, oldNum, setOldNum, operator, setOperator, fontSi
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
-                setFontSize((fontSize = 3));
             }
-            if (num.length != 8) {
-                if (btnInnerHTML === ".") {
-                    if (num === "") {
-                        setNum(num + "");
-                    } else if (num.includes(".")) {
-                        setNum(num + "");
-                    } else {
-                        setNum(num + btnInnerHTML);
-                    }
-                } else if (num === "0") {
-                    setNum(btnInnerHTML);
+
+            if (btnInnerHTML === ".") {
+                if (num === "") {
+                    setNum(num + "");
+                } else if (num.includes(".")) {
+                    setNum(num + "");
                 } else {
                     setNum(num + btnInnerHTML);
                 }
+            } else if (num === "0") {
+                setNum(btnInnerHTML);
+            } else {
+                setNum(num + btnInnerHTML);
             }
         }
 
@@ -39,26 +45,23 @@ const Keyboard = ({num, setNum, oldNum, setOldNum, operator, setOperator, fontSi
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
-                setFontSize((fontSize = 3));
             }
 
             if (num !== "0") {
-                setNum(num.slice(0, -1));
+                setNum(num.toString().slice(0, -1));
+                setOldNum((oldNum = ""));
                 if (num.length === 1) {
                     setNum((num = "0"));
-                }
-                if (num.length > 8) {
-                    setFontSize((fontSize += 0.1875));
                 }
             }
         }
 
         if (btnClassName === "operation") {
             if (checkequalOperation || oldNum === "") {
-                checkequalOperation = false;
                 setOperator((operator = btnInnerHTML));
                 setOldNum((oldNum = num));
                 setNum((num = "0"));
+                checkequalOperation = false;
             } else if (clickInOperationKey) {
                 setOperator((operator = btnInnerHTML));
                 clickInOperationKey = false;
@@ -73,22 +76,18 @@ const Keyboard = ({num, setNum, oldNum, setOldNum, operator, setOperator, fontSi
                 } else {
                     result = parseFloat(oldNum) / parseFloat(num);
                 }
+
                 setOldNum((oldNum = result));
                 setNum((num = "0"));
                 setOperator((operator = btnInnerHTML));
             }
-            setFontSize((fontSize = 3));
             clickInOperationKey = true;
         }
 
         if (btnClassName === "equal") {
-            var result;
-            if (checkequalOperation || oldNum === "") {
-                setNum((num = "0"));
-                setOldNum((oldNum = ""));
-                setOperator((operator = ""));
-                setFontSize((fontSize = 3));
-            } else {
+            if (checkequalOperation === false) {
+                checkequalOperation = true;
+                var result;
                 if (operator === "+") {
                     setOldNum((oldNum = oldNum + " + " + num + " ="));
                     result = parseFloat(oldNum) + parseFloat(num);
@@ -102,19 +101,8 @@ const Keyboard = ({num, setNum, oldNum, setOldNum, operator, setOperator, fontSi
                     setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
                     result = parseFloat(oldNum) / parseFloat(num);
                 }
-                if (result.toString().length > 8) {
-                    setFontSize((fontSize = 1.5));
-                }
-                if (result.toString().length > 19) {
-                    setNum((num = "Overflow"));
-                    setOldNum((oldNum = ""));
-                    setOperator((operator = "    "));
-                    setFontSize((fontSize = 3));
-                } else {
-                    setNum((num = result));
-                    setOperator((operator = ""));
-                }
-                checkequalOperation = true;
+                setNum((num = result));
+                setOperator((operator = ""));
             }
         }
 
@@ -122,7 +110,6 @@ const Keyboard = ({num, setNum, oldNum, setOldNum, operator, setOperator, fontSi
             setNum((num = "0"));
             setOldNum((oldNum = ""));
             setOperator((operator = ""));
-            setFontSize((fontSize = 3));
         }
     };
 

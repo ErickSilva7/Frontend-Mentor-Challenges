@@ -1,15 +1,13 @@
-import "./display.scss"
+import "./display.scss";
 
-const Display = ({ num, oldNum, operator, fontSize }) => {
+const Display = ({ num, oldNum, operator }) => {
     return (
-        <div className={"display"}>
+        <div className="display" id="display">
             <div className="oldNumAndOperator">
                 <div>{oldNum}</div>
                 <div>{operator}</div>
             </div>
-            <div className="num" style={{ fontSize: `${fontSize}rem` }}>
-                {num}
-            </div>
+            <div className="num">{num}</div>
         </div>
     );
 };
