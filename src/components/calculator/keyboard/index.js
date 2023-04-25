@@ -1,7 +1,7 @@
 import { keys } from "./key list.js";
 import "./keyboard.scss";
 
-let checkequalOperation = false;
+let checkEqualOperation = false;
 let clickInOperationKey = false;
 
 const Keyboard = ({
@@ -17,8 +17,8 @@ const Keyboard = ({
         let btnInnerHTML = key.target.innerHTML;
 
         if (btnClassName === "number") {
-            if (checkequalOperation) {
-                checkequalOperation = false;
+            if (checkEqualOperation) {
+                checkEqualOperation = false;
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
@@ -40,8 +40,8 @@ const Keyboard = ({
         }
 
         if (btnClassName === "del") {
-            if (checkequalOperation) {
-                checkequalOperation = false;
+            if (checkEqualOperation) {
+                checkEqualOperation = false;
                 setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
@@ -57,11 +57,11 @@ const Keyboard = ({
         }
 
         if (btnClassName === "operation") {
-            if (checkequalOperation || oldNum === "") {
+            if (checkEqualOperation || oldNum === "") {
                 setOperator((operator = btnInnerHTML));
                 setOldNum((oldNum = num));
                 setNum((num = "0"));
-                checkequalOperation = false;
+                checkEqualOperation = false;
             } else if (clickInOperationKey) {
                 setOperator((operator = btnInnerHTML));
                 clickInOperationKey = false;
@@ -85,24 +85,26 @@ const Keyboard = ({
         }
 
         if (btnClassName === "equal") {
-            if (checkequalOperation === false) {
-                checkequalOperation = true;
-                var result;
-                if (operator === "+") {
-                    setOldNum((oldNum = oldNum + " + " + num + " ="));
-                    result = parseFloat(oldNum) + parseFloat(num);
-                } else if (operator === "-") {
-                    setOldNum((oldNum = oldNum + " - " + num + " ="));
-                    result = parseFloat(oldNum) - parseFloat(num);
-                } else if (operator === "x") {
-                    setOldNum((oldNum = oldNum + " x " + num + " ="));
-                    result = parseFloat(oldNum) * parseFloat(num);
-                } else {
-                    setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
-                    result = parseFloat(oldNum) / parseFloat(num);
+            if (checkEqualOperation === false) {
+                checkEqualOperation = true;
+                if (oldNum !== "") {
+                    var result;
+                    if (operator === "+") {
+                        setOldNum((oldNum = oldNum + " + " + num + " ="));
+                        result = parseFloat(oldNum) + parseFloat(num);
+                    } else if (operator === "-") {
+                        setOldNum((oldNum = oldNum + " - " + num + " ="));
+                        result = parseFloat(oldNum) - parseFloat(num);
+                    } else if (operator === "x") {
+                        setOldNum((oldNum = oldNum + " x " + num + " ="));
+                        result = parseFloat(oldNum) * parseFloat(num);
+                    } else {
+                        setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
+                        result = parseFloat(oldNum) / parseFloat(num);
+                    }
+                    setNum((num = result));
+                    setOperator((operator = ""));
                 }
-                setNum((num = result));
-                setOperator((operator = ""));
             }
         }
 
