@@ -19,7 +19,6 @@
     button {
         height: 3rem;
         border-radius: 5px;
-        font-family: $main-font;
 
         &:hover {
             cursor: pointer;
@@ -61,7 +60,6 @@
 
     .del {
         width: 2.875rem;
-        font-family: $second-font;
 
         @media (min-width: 768px) {
             width: 5.75rem;
@@ -74,7 +72,6 @@
 
     .reset {
         width: 6.75rem;
-        font-family: $second-font;
 
         @media (min-width: 768px) {
             width: 12.5rem;
