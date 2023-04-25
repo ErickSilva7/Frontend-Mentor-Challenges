@@ -77,6 +77,10 @@
             box-shadow: 0 5px 0 $equal-box-shadow-theme1;
             color: $del-reset-and-equal-font-color-theme1;
         }
+
+        button:active {
+            box-shadow: none;
+        }
     }
 }
 
