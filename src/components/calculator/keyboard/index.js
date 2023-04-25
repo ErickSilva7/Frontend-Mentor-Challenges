@@ -128,7 +128,7 @@ const Keyboard = ({
     return (
         <div className="keyboard">
             {keys.map((props) => (
-                <button className={props.class} onClick={keyClick}>
+                <button key={props.id} className={props.class} onClick={keyClick}>
                     {props.key}
                 </button>
             ))}
