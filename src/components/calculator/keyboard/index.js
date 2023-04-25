@@ -101,16 +101,16 @@ const Keyboard = ({
                     var result;
                     if (operator === "+") {
                         setOldNum((oldNum = oldNum + " + " + num + " ="));
-                        result = parseFloat(oldNum) + parseFloat(num);
+                        result = parseFloat(oldNum.replace(/,/g, "")) + parseFloat(num.replace(/,/g, ""));
                     } else if (operator === "-") {
                         setOldNum((oldNum = oldNum + " - " + num + " ="));
-                        result = parseFloat(oldNum) - parseFloat(num);
+                        result = parseFloat(oldNum.replace(/,/g, "")) - parseFloat(num.replace(/,/g, ""));
                     } else if (operator === "x") {
                         setOldNum((oldNum = oldNum + " x " + num + " ="));
-                        result = parseFloat(oldNum) * parseFloat(num);
+                        result = parseFloat(oldNum.replace(/,/g, "")) * parseFloat(num.replace(/,/g, ""));
                     } else {
                         setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
-                        result = parseFloat(oldNum) / parseFloat(num);
+                        result = parseFloat(oldNum.replace(/,/g, "")) / parseFloat(num.replace(/,/g, ""));
                     }
                     setNum((num = result.toLocaleString("en-US")));
                     setOperator((operator = ""));
