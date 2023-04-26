@@ -11,9 +11,8 @@
     border-radius: 10px;
     height: 6rem;
     overflow-x: scroll;
-
+    white-space: nowrap;
     
-
     .oldNumAndOperator {
         grid-row: 1/2;
         display: flex;

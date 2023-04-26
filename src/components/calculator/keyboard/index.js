@@ -15,32 +15,31 @@ const Keyboard = ({
     const keyClick = (key) => {
         let btnClassName = key.target.className;
         let btnInnerHTML = key.target.innerHTML;
+        let result;
 
         if (btnClassName === "number") {
             if (checkEqualOperation) {
                 checkEqualOperation = false;
-                setNum((num = "0"));
                 setOldNum((oldNum = ""));
                 setOperator((operator = ""));
             }
 
-            if (btnInnerHTML === ".") {
-                if (num === "") {
-                    setNum(num + "");
-                } else if (num.includes(".")) {
-                    setNum(num + "");
-                } else {
-                    setNum(num + btnInnerHTML);
-                }
-            } else if (num === "0") {
-                setNum(btnInnerHTML);
+            if (btnInnerHTML === "π") {
+                setNum((num = Math.PI));
             } else {
-                num = num.replace(/,/g, "");
-                setNum(
-                    (num = parseFloat((num += btnInnerHTML)).toLocaleString(
-                        "en-US"
-                    ))
-                );
+                if (btnInnerHTML === ".") {
+                    if (num === "") {
+                        setNum(num + "");
+                    } else if (num.toString().includes(".")) {
+                        setNum(num + "");
+                    } else {
+                        setNum(num + btnInnerHTML);
+                    }
+                } else if (num === "0") {
+                    setNum(btnInnerHTML);
+                } else if (num.toString().length < 15) {
+                    setNum((num = parseFloat((num += btnInnerHTML))));
+                }
             }
         }
 
@@ -52,21 +51,15 @@ const Keyboard = ({
                 setOperator((operator = ""));
             }
 
-            if (num !== "0") {
-                num = num.toString().slice(0, -1).replace(/,/g, "");
-                setNum(
-                    (num = parseFloat((num += btnInnerHTML)).toLocaleString(
-                        "en-US"
-                    ))
-                );
-                setOldNum((oldNum = ""));
-                if (num.length === 1) {
-                    setNum((num = "0"));
-                }
+            if (num !== "0" && num.toString().length !== 1) {
+                num = num.toString().slice(0, -1);
+                setNum((num = parseFloat((num += btnInnerHTML))));
+            } else {
+                setNum((num = "0"));
             }
         }
 
-        if (btnClassName === "operation") {
+        if (btnClassName === "basicOperation") {
             if (checkEqualOperation || oldNum === "") {
                 setOperator((operator = btnInnerHTML));
                 setOldNum((oldNum = num));
@@ -76,7 +69,6 @@ const Keyboard = ({
                 setOperator((operator = btnInnerHTML));
                 clickInOperationKey = false;
             } else {
-                var result;
                 if (operator === "+") {
                     result = parseFloat(oldNum) + parseFloat(num);
                 } else if (operator === "-") {
@@ -98,21 +90,20 @@ const Keyboard = ({
             if (checkEqualOperation === false) {
                 checkEqualOperation = true;
                 if (oldNum !== "") {
-                    var result;
                     if (operator === "+") {
                         setOldNum((oldNum = oldNum + " + " + num + " ="));
-                        result = parseFloat(oldNum.replace(/,/g, "")) + parseFloat(num.replace(/,/g, ""));
+                        result = parseFloat(oldNum) + parseFloat(num);
                     } else if (operator === "-") {
                         setOldNum((oldNum = oldNum + " - " + num + " ="));
-                        result = parseFloat(oldNum.replace(/,/g, "")) - parseFloat(num.replace(/,/g, ""));
+                        result = parseFloat(oldNum) - parseFloat(num);
                     } else if (operator === "x") {
                         setOldNum((oldNum = oldNum + " x " + num + " ="));
-                        result = parseFloat(oldNum.replace(/,/g, "")) * parseFloat(num.replace(/,/g, ""));
+                        result = parseFloat(oldNum) * parseFloat(num);
                     } else {
                         setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
-                        result = parseFloat(oldNum.replace(/,/g, "")) / parseFloat(num.replace(/,/g, ""));
+                        result = parseFloat(oldNum) / parseFloat(num);
                     }
-                    setNum((num = result.toLocaleString("en-US")));
+                    setNum((num = result));
                     setOperator((operator = ""));
                 }
             }
@@ -123,12 +114,36 @@ const Keyboard = ({
             setOldNum((oldNum = ""));
             setOperator((operator = ""));
         }
+
+        if (btnClassName === 'changeTypeNumber') {
+            if (checkEqualOperation) {
+                checkEqualOperation = false
+                setOldNum(oldNum = "")
+                setOperator(operator = "")
+            }
+            setNum(num *= -1)
+        }
+
+        if (btnClassName === 'percentage') {
+            if (checkEqualOperation) {
+                checkEqualOperation = false
+                setOldNum(oldNum = "")
+                setOperator(operator = "")
+            }
+            setNum(num /= 100)
+        }
+
+        if (btnClassName === 'e')
     };
 
     return (
         <div className="keyboard">
             {keys.map((props) => (
-                <button key={props.id} className={props.class} onClick={keyClick}>
+                <button
+                    key={props.id}
+                    className={props.class}
+                    onClick={keyClick}
+                >
                     {props.key}
                 </button>
             ))}

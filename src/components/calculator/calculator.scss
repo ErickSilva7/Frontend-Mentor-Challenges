@@ -1,7 +1,7 @@
 @import "../../abstract/variables.scss";
 
 .calculator {
-    height: 39rem;
+    height: auto;
     width: 22.5rem;
     padding: 2rem;
     display: flex;
@@ -54,7 +54,12 @@
         background-color: $keyboard-background-color-theme1;
 
         .number,
-        .operation {
+        .basicOperation,
+        .factorial,
+        .square-root,
+        .exponentiation,
+        .percentage,
+        .changeTypeNumber {
             background-color: $number-and-operation-color-theme1;
             box-shadow: 0 5px 0 $number-and-operation-box-shadow-theme1;
             color: $number-and-operation-font-color-theme1;
@@ -116,7 +121,12 @@
         background-color: $keyboard-background-color-theme2;
 
         .number,
-        .operation {
+        .basicOperation,
+        .factorial,
+        .square-root,
+        .exponentiation,
+        .percentage,
+        .changeTypeNumber {
             background-color: $number-and-operation-color-theme2;
             box-shadow: 0 5px 0 $number-and-operation-box-shadow-theme2;
             color: $number-and-operation-font-color-theme2;
@@ -174,7 +184,12 @@
         background-color: $keyboard-background-color-theme3;
 
         .number,
-        .operation {
+        .basicOperation,
+        .factorial,
+        .square-root,
+        .exponentiation,
+        .percentage,
+        .changeTypeNumber {
             background-color: $number-and-operation-color-theme3;
             box-shadow: 0 5px 0 $number-and-operation-box-shadow-theme3;
             color: $number-and-operation-font-color-theme3;
