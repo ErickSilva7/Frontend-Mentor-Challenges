@@ -18,6 +18,9 @@ const Keyboard = ({
         let result;
 
         if (btnClassName === "number") {
+            if (num === "infinity") {
+                setNum((num = "0"));
+            }
             if (checkEqualOperation) {
                 checkEqualOperation = false;
                 setOldNum((oldNum = ""));
@@ -59,15 +62,12 @@ const Keyboard = ({
             }
         }
 
-        if (btnClassName === "basicOperation") {
+        if (btnClassName === "Operation") {
             if (checkEqualOperation || oldNum === "") {
                 setOperator((operator = btnInnerHTML));
                 setOldNum((oldNum = num));
                 setNum((num = "0"));
                 checkEqualOperation = false;
-            } else if (clickInOperationKey) {
-                setOperator((operator = btnInnerHTML));
-                clickInOperationKey = false;
             } else {
                 if (operator === "+") {
                     result = parseFloat(oldNum) + parseFloat(num);
@@ -75,10 +75,11 @@ const Keyboard = ({
                     result = parseFloat(oldNum) - parseFloat(num);
                 } else if (operator === "x") {
                     result = parseFloat(oldNum) * parseFloat(num);
-                } else {
+                } else if (operator === "÷") {
                     result = parseFloat(oldNum) / parseFloat(num);
+                } else {
+                    result = parseFloat(oldNum) ** parseFloat(num);
                 }
-
                 setOldNum((oldNum = result));
                 setNum((num = "0"));
                 setOperator((operator = btnInnerHTML));
@@ -99,9 +100,12 @@ const Keyboard = ({
                     } else if (operator === "x") {
                         setOldNum((oldNum = oldNum + " x " + num + " ="));
                         result = parseFloat(oldNum) * parseFloat(num);
-                    } else {
+                    } else if (operator === "÷") {
                         setOldNum((oldNum = oldNum + " ÷ " + num + " ="));
                         result = parseFloat(oldNum) / parseFloat(num);
+                    } else {
+                        setOldNum((oldNum = oldNum + " ^ " + num + " ="));
+                        result = parseFloat(oldNum) ** parseFloat(num);
                     }
                     setNum((num = result));
                     setOperator((operator = ""));
@@ -132,6 +136,30 @@ const Keyboard = ({
             }
             setNum((num /= 100));
         }
+
+        if (btnClassName === "factorial") {
+            if (num.toString().length <= 2) {
+                if (!/\./.test(num)) {
+                    setOldNum((oldNum = `${num}! =`));
+                    setOperator((operator = ""));
+                    if (num === "0") {
+                        setNum((num = 1));
+                    } else {
+                        for (var i = num - 1; i >= 1; i--) {
+                            num *= i;
+                        }
+                        setNum(num);
+                    }
+                }
+            } else {
+                setNum((num = "infinity"));
+            }
+            checkEqualOperation = true;
+        }
+
+        // if (btnClassName === "percentage") {
+        //     setNum(num = )
+        // }
     };
 
     return (
