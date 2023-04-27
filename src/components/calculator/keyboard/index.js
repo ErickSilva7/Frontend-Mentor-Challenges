@@ -115,25 +115,23 @@ const Keyboard = ({
             setOperator((operator = ""));
         }
 
-        if (btnClassName === 'changeTypeNumber') {
+        if (btnClassName === "changeTypeNumber") {
             if (checkEqualOperation) {
-                checkEqualOperation = false
-                setOldNum(oldNum = "")
-                setOperator(operator = "")
+                checkEqualOperation = false;
+                setOldNum((oldNum = ""));
+                setOperator((operator = ""));
             }
-            setNum(num *= -1)
+            setNum((num *= -1));
         }
 
-        if (btnClassName === 'percentage') {
+        if (btnClassName === "percentage") {
             if (checkEqualOperation) {
-                checkEqualOperation = false
-                setOldNum(oldNum = "")
-                setOperator(operator = "")
+                checkEqualOperation = false;
+                setOldNum((oldNum = ""));
+                setOperator((operator = ""));
             }
-            setNum(num /= 100)
+            setNum((num /= 100));
         }
-
-        if (btnClassName === 'e')
     };
 
     return (
