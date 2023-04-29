@@ -79,9 +79,15 @@ const Keyboard = ({
                 } else {
                     result = parseFloat(oldNum) ** parseFloat(num);
                 }
-                setOldNum((oldNum = result));
-                setNum((num = "0"));
-                setOperator((operator = btnInnerHTML));
+                if (!result) {
+                    setNum((num = "undefined"));
+                    setOldNum((oldNum = ""));
+                    setOperator((operator = ""));
+                } else {
+                    setOldNum((oldNum = result));
+                    setNum((num = "0"));
+                    setOperator((operator = btnInnerHTML));
+                }
             }
         }
 
@@ -136,23 +142,26 @@ const Keyboard = ({
         }
 
         if (btnClassName === "factorial") {
-            if (num.toString().length <= 2) {
-                if (!/\./.test(num)) {
-                    setOldNum((oldNum = `${num}! =`));
-                    setOperator((operator = ""));
-                    if (num === "0") {
-                        setNum((num = 1));
-                    } else {
-                        for (var i = num - 1; i >= 1; i--) {
-                            num *= i;
+            if (num.toString().indexOf(".") === -1) {
+                if (num.toString().length <= 2) {
+                    if (!/\./.test(num)) {
+                        setOldNum((oldNum = `${num}! =`));
+                        setOperator((operator = ""));
+                        if (num === "0") {
+                            setNum((num = 1));
+                        } else {
+                            for (var i = num - 1; i >= 1; i--) {
+                                num *= i;
+                            }
+                            setNum(num);
                         }
-                        setNum(num);
                     }
+                } else {
+                    setOldNum((oldNum = `${num}! =`));
+                    setNum((num = "infinity"));
                 }
-            } else {
-                setNum((num = "infinity"));
+                checkEqualOperation = true;
             }
-            checkEqualOperation = true;
         }
 
         if (btnClassName === "square-root") {
@@ -161,7 +170,7 @@ const Keyboard = ({
                 setOldNum((oldNum = `√${num} =`));
                 setNum((num = result));
                 setOperator((operator = ""));
-                checkEqualOperation = true
+                checkEqualOperation = true;
             }
         }
     };
