@@ -1,4 +1,4 @@
-import { keys } from "./key list.js";
+import keys from "./key list.json";
 import "./keyboard.scss";
 
 let checkEqualOperation = false;
