@@ -2,7 +2,6 @@ import { keys } from "./key list.js";
 import "./keyboard.scss";
 
 let checkEqualOperation = false;
-let clickInOperationKey = false;
 
 const Keyboard = ({
     num,
@@ -84,7 +83,6 @@ const Keyboard = ({
                 setNum((num = "0"));
                 setOperator((operator = btnInnerHTML));
             }
-            clickInOperationKey = true;
         }
 
         if (btnClassName === "equal") {
@@ -157,9 +155,15 @@ const Keyboard = ({
             checkEqualOperation = true;
         }
 
-        // if (btnClassName === "percentage") {
-        //     setNum(num = )
-        // }
+        if (btnClassName === "square-root") {
+            let result = num ** 0.5;
+            if (result) {
+                setOldNum((oldNum = `√${num} =`));
+                setNum((num = result));
+                setOperator((operator = ""));
+                checkEqualOperation = true
+            }
+        }
     };
 
     return (
