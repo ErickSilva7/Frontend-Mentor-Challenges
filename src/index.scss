@@ -11,13 +11,13 @@
 }
 
 body {
+    @media (min-height: 688px) {
+        height: 100vh;
+    }
     background-color: #252d41;
     display: flex;
     justify-content: center;
-
-    @media (min-height: 768px) {
-        margin: 10vh;
-    }
+    align-items: center;
 }
 
 ::-webkit-scrollbar {

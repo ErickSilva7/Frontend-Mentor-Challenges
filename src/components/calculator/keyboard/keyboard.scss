@@ -9,14 +9,6 @@
     flex-wrap: wrap;
     gap: 1rem;
 
-    @media (min-width: 768px) {
-        width: 30rem;
-    }
-
-    @media (min-width: 1440px) {
-        width: 41.75rem;
-    }
-
     button {
         width: 2.875rem;
         height: 2.875rem;
@@ -31,16 +23,6 @@
             position: relative;
             top: 5px;
         }
-
-        @media (min-width: 768px) {
-            height: 4.5rem;
-            font-size: 1.25rem;
-        }
-
-        @media (min-width: 1440px) {
-            height: 5.25rem;
-            font-size: 1.25rem;
-        }
     }
 
     .number,
@@ -50,14 +32,6 @@
     .percentage,
     .changeTypeNumber {
         font-weight: 600;
-
-        @media (min-width: 768px) {
-            font-size: 1.75rem;
-        }
-
-        @media (min-width: 1440px) {
-            font-size: 2rem;
-        }
     }
 
     .equal {
