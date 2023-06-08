@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "keyType": "reset",
+    "key": "AC"
+  },
+  {
+    "id": "2",
+    "keyType": "number",
+    "key": "π"
+  },
+  {
+    "id": "3",
+    "keyType": "factorial",
+    "key": "!"
+  },
+  {
+    "id": "4",
+    "keyType": "del",
+    "key": "Del"
+  },
+  {
+    "id": "5",
+    "keyType": "square-root",
+    "key": "√"
+  },
+  {
+    "id": "6",
+    "keyType": "Operation",
+    "key": "^"
+  },
+  {
+    "id": "7",
+    "keyType": "percentage",
+    "key": "%"
+  },
+  {
+    "id": "8",
+    "keyType": "Operation",
+    "key": "÷"
+  },
+  {
+    "id": "9",
+    "keyType": "number",
+    "key": "7"
+  },
+  {
+    "id": "10",
+    "keyType": "number",
+    "key": "8"
+  },
+  {
+    "id": "11",
+    "keyType": "number",
+    "key": "9"
+  },
+  {
+    "id": "12",
+    "keyType": "Operation",
+    "key": "x"
+  },
+  {
+    "id": "13",
+    "keyType": "number",
+    "key": "4"
+  },
+  {
+    "id": "14",
+    "keyType": "number",
+    "key": "5"
+  },
+  {
+    "id": "15",
+    "keyType": "number",
+    "key": "6"
+  },
+  {
+    "id": "16",
+    "keyType": "Operation",
+    "key": "-"
+  },
+  {
+    "id": "17",
+    "keyType": "number",
+    "key": "1"
+  },
+  {
+    "id": "18",
+    "keyType": "number",
+    "key": "2"
+  },
+  {
+    "id": "19",
+    "keyType": "number",
+    "key": "3"
+  },
+  {
+    "id": "21",
+    "keyType": "Operation",
+    "key": "+"
+  },
+  {
+    "id": "20",
+    "keyType": "changeTypeNumber",
+    "key": "+/-"
+  },
+  {
+    "id": "23",
+    "keyType": "number",
+    "key": "0"
+  },
+  {
+    "id": "22",
+    "keyType": "number",
+    "key": "."
+  },
+  {
+    "id": "24",
+    "keyType": "equal",
+    "key": "="
+  }
+]
