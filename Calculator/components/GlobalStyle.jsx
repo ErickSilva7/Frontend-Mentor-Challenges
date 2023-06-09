@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { mainFont, scrollbarThumbColor } from './UI/Variables';
+import { mainFont, scrollbarThumbColor } from './variables';
 
 const GlobalStyle = createGlobalStyle`
 * {
