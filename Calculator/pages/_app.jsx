@@ -1,5 +1,5 @@
-import React from 'react';
-import { ThemeProvider } from '../context/ThemeContext';
+import React from "react";
+import { ThemeProvider } from "../context/ThemeContext";
 
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {

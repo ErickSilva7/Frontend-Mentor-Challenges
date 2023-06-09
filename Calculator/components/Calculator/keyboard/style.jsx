@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 export const StyledKeyboard = styled.div`
   width: 18.5rem;
@@ -18,23 +18,23 @@ export const StyledKey = styled.button`
   border-radius: 5px;
   cursor: pointer;
 
-  ${({ theme, keyType }) => {
+  ${({ theme, id }) => {
     let backgroundColor = theme.numberAndOperationColor;
     let boxShadow = theme.numberAndOperationBoxShadow;
     let color = theme.numberAndOperationFontColor;
     let fontWeight = 600;
 
-    if (keyType === 'del') {
+    if (id === "del") {
       backgroundColor = theme.delAndResetColor;
       boxShadow = theme.delAndResetBoxShadow;
       color = theme.delResetAndEqualFontColor;
       fontWeight = 400;
-    } else if (keyType === 'reset') {
+    } else if (id === "reset") {
       backgroundColor = theme.delAndResetColor;
       boxShadow = theme.delAndResetBoxShadow;
       color = theme.delResetAndEqualFontColor;
       fontWeight = 400;
-    } else if (keyType === 'equal') {
+    } else if (id === "equal") {
       backgroundColor = theme.equalAndDotColor;
       boxShadow = theme.equalBoxShadow;
       color = theme.delResetAndEqualFontColor;
@@ -47,7 +47,7 @@ export const StyledKey = styled.button`
       font-weight: ${fontWeight};
     `;
   }};
- 
+
   &:active {
     position: relative;
     top: 5px;

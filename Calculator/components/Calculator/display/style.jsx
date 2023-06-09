@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 export const StyledDisplay = styled.div`
   display: grid;
@@ -16,7 +16,7 @@ export const StyledDisplay = styled.div`
   color: ${({ theme }) => theme.textColor};
 `;
 
-export const OldNumAndOperator = styled.div` 
+export const OldNumAndOperator = styled.div`
   grid-row: 1/2;
   display: flex;
   gap: 0.5rem;

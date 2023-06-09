@@ -1,14 +1,17 @@
-import React from 'react';
-import { Num, OldNumAndOperator, StyledDisplay } from './style';
+import React, { useContext } from "react";
+import { Num, OldNumAndOperator, StyledDisplay } from "./style";
+import { CalculatorContext } from "../../../context/CalculatorContext";
 
 function Display() {
+  const { num, oldNum, operator } = useContext(CalculatorContext);
+
   return (
     <StyledDisplay>
       <OldNumAndOperator>
-        <div>1</div>
-        <div>+</div>
+        <div>{oldNum}</div>
+        <div>{operator}</div>
       </OldNumAndOperator>
-      <Num>3</Num>
+      <Num>{num}</Num>
     </StyledDisplay>
   );
 }

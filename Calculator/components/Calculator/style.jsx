@@ -1,7 +1,7 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 const StyledCalculator = styled.div`
-  height: auto;   
+  height: auto;
   width: 22.5rem;
   padding: 2rem;
   display: flex;

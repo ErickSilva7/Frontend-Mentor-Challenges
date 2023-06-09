@@ -1,15 +1,18 @@
-import React from 'react';
-import StyledCalculator from './style';
-import Header from './header';
-import Display from './display';
-import Keyboard from './keyboard';
+import React from "react";
+import StyledCalculator from "./style";
+import Header from "./header";
+import Display from "./display";
+import Keyboard from "./keyboard";
+import { CalculatorProvider } from "../../context/CalculatorContext";
 
 function Calculator() {
   return (
     <StyledCalculator>
       <Header />
-      <Display />
-      <Keyboard />
+      <CalculatorProvider>
+        <Display />
+        <Keyboard />
+      </CalculatorProvider>
     </StyledCalculator>
   );
 }
