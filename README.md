@@ -20,6 +20,8 @@ Users should be able to:
 
 ## Screenshot
 
+![Screenshot](https://github.com/ErickSilva7/Calculator/assets/122052747/f55bf0e6-cf3b-4169-ad9e-952dac22e864)
+
 ## Links
 
 - [Code](https://github.com/ErickSilva7/Calculator)
