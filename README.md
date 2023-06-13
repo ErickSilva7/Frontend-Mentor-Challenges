@@ -24,7 +24,6 @@ Users should be able to:
 
 ## Links
 
-- [Code](https://github.com/ErickSilva7/Calculator)
 - [Demo](https://calculator-dxjywk022-ericksilva7.vercel.app/)
 
 ## Built with
